@@ -1,14 +1,17 @@
-@define-mixin title {
-  font: 24px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: bold;
+@define-mixin large {
+  @media screen and (min-width: large-breakpoint) {
+     @mixin-content;
+  }
 }
 
-@define-mixin paragraph {
-  margin: 0 20px;
-  font: 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@define-mixin medium {
+  @media screen and (min-width: medium-breakpoint) and (max-width: large-breakpoint) {
+     @mixin-content;
+  }
 }
 
-@define-mixin figure {
-  text-align: center;
-  margin: 20px 0;
+@define-mixin small {
+  @media screen and (max-width: medium-breakpoint) {
+     @mixin-content;
+  }
 }

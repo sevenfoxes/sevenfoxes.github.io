@@ -15,6 +15,9 @@ const postcss_import = require('postcss-easy-import')
 // ejs
 const ejs = require('gulp-ejs')
 
+// jekyll
+const shell = require('gulp-shell')
+
 //testing server
 const rewrite = require('connect-modrewrite')
 const sync = require('browser-sync').create()
@@ -30,15 +33,17 @@ const uglify = require('gulp-uglify')
 
 function getJSONFromCssModules(cssFileName, json) {
   const cssName = path.basename(cssFileName, '.css')
-  const jsonFileName = path.resolve('./build', `${ cssName }.json`)
+  const jsonFileName = path.resolve('./css', `${ cssName }.json`)
   fs.writeFileSync(jsonFileName, JSON.stringify(json))
 }
 
 function getClass(module, className) {
-  const moduleFileName = path.resolve('./build', `${ module }.json`)
+  const moduleFileName = path.resolve('./css', `${ module }.json`)
   const classNames = fs.readFileSync(moduleFileName).toString()
   return JSON.parse(classNames)[className]
 }
+
+gulp.task('jekyll', shell.task(['bundle exec jekyll build --watch']))
 
 gulp.task('css', () => {
   return gulp.src('./src/css/app.css')
@@ -55,14 +60,28 @@ gulp.task('css', () => {
     }),
   ]))
   .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest('./build'))
+  .pipe(gulp.dest('./css'))
   .pipe(sync.stream({match: '**/*.css'}))
 })
 
-gulp.task('html', ['css'], () => {
-  return gulp.src('./src/html/index.ejs')
+gulp.task('layouts', ['css'], () => {
+  return gulp.src('./src/layouts/**.ejs')
     .pipe(ejs({ className: getClass }, {}, { ext: '.html' }))
-    .pipe(gulp.dest('./build'))
+    .pipe(gulp.dest('./_layouts'))
+    .pipe(sync.stream())
+})
+
+gulp.task('includes', ['css'], () => {
+  return gulp.src('./src/includes/**.ejs')
+    .pipe(ejs({ className: getClass }, {}, { ext: '.html' }))
+    .pipe(gulp.dest('./_includes'))
+    .pipe(sync.stream())
+})
+
+gulp.task('pages', ['css'], () => {
+  return gulp.src('./src/pages/**.ejs')
+    .pipe(ejs({ className: getClass }, {}, { ext: '.html' }))
+    .pipe(gulp.dest('./'))
     .pipe(sync.stream())
 })
 
@@ -76,14 +95,14 @@ gulp.task('browserify', () => {
     .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(uglify())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./build'))
+    .pipe(gulp.dest('./_includes'))
     .pipe(sync.stream({match: '**/*.js'}))
 })
 
 gulp.task('watch', () => {
   sync.init({
     server: {
-      baseDir: './build',
+      baseDir: './_site',
       middleware: [
         rewrite([
           '^.([^\\.]+)$ /$1.html [L]'
@@ -96,9 +115,12 @@ gulp.task('watch', () => {
     notify: false
   })
 
+  gulp.watch('./_site/**/*.html').on('change', sync.reload)
   gulp.watch('./src/css/**.css', ['css'])
-  gulp.watch('./src/html/**.ejs', ['html'])
+  gulp.watch('./src/layouts/**.ejs', ['layouts'])
+  gulp.watch('./src/includes/**.ejs', ['includes'])
+  gulp.watch('./src/pages/**.ejs', ['pages'])
   gulp.watch('./src/js/**.js', ['browserify'])
 })
 
-gulp.task('default', ['html', 'browserify', 'watch'])
+gulp.task('default', ['jekyll', 'includes', 'layouts', 'pages', 'browserify', 'watch'])
