@@ -1,0 +1,14 @@
+@define-mixin title {
+  font: 24px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+@define-mixin paragraph {
+  margin: 0 20px;
+  font: 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@define-mixin figure {
+  text-align: center;
+  margin: 20px 0;
+}

@@ -1,0 +1,48 @@
+/*
+postcss plugins (in this order)
+
+- postcss-easy-import
+- postcss-nesting
+- postcss-mixins
+- postcss-extend
+- autoprefixer
+- postcss-module
+
+*/
+
+@import './colors.css';
+@import './mixins.css';
+
+.title {
+  @add-mixin title;
+}
+
+.article {
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.figure {
+  @add-mixin figure;
+  margin: 40px 0;
+}
+
+.image {
+  max-width: 80%;
+}
+
+.first {
+  @add-mixin paragraph;
+}
+
+.first {
+  color: first;
+}
+
+.second {
+  color: second;
+}
+
+.third {
+  color: third;
+}
