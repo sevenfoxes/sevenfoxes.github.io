@@ -1,8 +1,9 @@
 ---
+title: Welcome to Jekyll!
+date: 2017-05-16 00:00:00 Z
+categories:
+- main
 layout: default
-title:  "Welcome to Jekyll!"
-date:   2017-05-16
-categories: main
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
