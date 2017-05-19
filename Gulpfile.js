@@ -115,7 +115,6 @@ gulp.task('watch', () => {
     notify: false
   })
 
-  gulp.watch('./_site/**/*.html').on('change', sync.reload)
   gulp.watch('./src/css/**.css', ['css'])
   gulp.watch('./src/layouts/**.ejs', ['layouts'])
   gulp.watch('./src/includes/**.ejs', ['includes'])
