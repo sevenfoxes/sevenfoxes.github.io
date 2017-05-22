@@ -6,7 +6,7 @@
       {% for p in site.pages %}
         {% if p.url != '/' %}
         <li>
-          <a href="{{ p.url }}" {% if p == p.url %}class="<%= className('site-nav', 'active-link') %>"{% endif %}>
+          <a href="{{ p.url }}" {% if p.url == page.url %}class="<%= className('site-nav', 'active-link') %>"{% endif %}>
             {{ p.title }}
           </a>
         </li>
