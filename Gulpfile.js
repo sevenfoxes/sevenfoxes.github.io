@@ -6,9 +6,10 @@ const sourcemaps = require('gulp-sourcemaps')
 // postcss
 const autoprefixer = require('autoprefixer')
 const extend = require('postcss-extend')
+const concatCss = require('gulp-concat-css')
 const mixins = require('postcss-mixins')
 const modules = require('postcss-modules')
-const nesting = require('postcss-nesting')
+const nested = require('postcss-nested')
 const postcss = require('gulp-postcss')
 const postcss_import = require('postcss-easy-import')
 
@@ -46,12 +47,14 @@ function getClass(module, className) {
 gulp.task('jekyll', shell.task(['bundle exec jekyll build']))
 
 gulp.task('css', () => {
-  return gulp.src('./src/css/app.css')
-  .pipe(sourcemaps.init({ loadMaps: true }))
+  return gulp.src([
+    './src/css/modules/*.css',
+    './src/css/layouts/*.css'
+  ])
   .pipe(postcss([
     postcss_import,
-    nesting,
     mixins,
+    nested,
     extend,
     autoprefixer,
     modules({
@@ -59,30 +62,30 @@ gulp.task('css', () => {
       generateScopedName: '[name]-[local]__[hash:base64:5]'
     }),
   ]))
-  .pipe(sourcemaps.write('.'))
+  .pipe(concatCss('app.css'))
   .pipe(gulp.dest('./css'))
   .pipe(sync.stream({match: '**/*.css'}))
 })
 
-gulp.task('layouts', ['css'], () => {
+gulp.task('layouts', gulp.series('css', () => {
   return gulp.src('./src/layouts/**.ejs')
     .pipe(ejs({ className: getClass }, {}, { ext: '.html' }))
     .pipe(gulp.dest('./_layouts'))
     .pipe(sync.stream())
-})
+}))
 
-gulp.task('includes', ['css'], () => {
+gulp.task('includes', gulp.series('css', () => {
   return gulp.src('./src/includes/**.ejs')
     .pipe(ejs({ className: getClass }, {}, { ext: '.html' }))
     .pipe(gulp.dest('./_includes'))
     .pipe(sync.stream())
-})
+}))
 
-gulp.task('browserify', () => {
+gulp.task('browserify', gulp.series(() => {
   const bundler = watchify(browserify('./src/js/app.js', {debug: true}))
     .transform(babelify)
 
-  bundler.bundle()
+  return bundler.bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
@@ -90,17 +93,13 @@ gulp.task('browserify', () => {
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./_includes'))
     .pipe(sync.stream({match: '**/*.js'}))
-})
 
-gulp.task('watch', () => {
+}))
+
+function watch() {
   sync.init({
     server: {
-      baseDir: './_site',
-      middleware: [
-        rewrite([
-          '^.([^\\.]+)$ /$1.html [L]'
-        ])
-      ]
+      baseDir: './_site'
     },
     open: false,
     browser: 'default',
@@ -108,13 +107,31 @@ gulp.task('watch', () => {
     notify: false
   })
 
-  gulp.watch('./*.html', ['jekyll'])
-  gulp.watch('./*.markdown', ['jekyll'])
-  gulp.watch('./posts/**/*.markdown', ['jekyll'])
-  gulp.watch('./src/css/**.css', ['css'])
-  gulp.watch('./src/layouts/**.ejs', ['layouts'])
-  gulp.watch('./src/includes/**.ejs', ['includes'])
-  gulp.watch('./src/js/**.js', ['browserify'])
-})
+  gulp.watch(['./*.markdown', './posts/**/*.markdown'],
+    gulp.series('jekyll', done => {
+      sync.reload()
+      done()
+    }))
 
-gulp.task('default', ['jekyll', 'includes', 'layouts', 'browserify', 'watch'])
+  gulp.watch(['./src/css/**/*.css'],
+    gulp.series('css', 'jekyll', done => {
+      sync.reload()
+      done()
+    }))
+
+  gulp.watch(['./src/includes/**/*.ejs', './src/includes/**/*.ejs'],
+    gulp.series('layouts', 'includes', 'jekyll', done => {
+      sync.reload()
+      done()
+    }))
+
+  gulp.watch(['./src/js/**/*.js'],
+    gulp.series('browserify', 'jekyll', done => {
+      sync.reload()
+      done()
+    }))
+}
+
+gulp.task(watch)
+
+gulp.task('default', gulp.series('includes', 'layouts', 'browserify', 'jekyll', 'watch'))

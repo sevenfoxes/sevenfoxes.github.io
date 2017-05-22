@@ -1,0 +1,21 @@
+@import './mixins.css';
+
+@define-mixin inner-wrapper {
+  padding: 2rem 6rem;
+
+  @mixin large {
+    max-width: 64rem;
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
+
+  @mixin medium {
+    padding: 2rem 4rem;
+    font-size: 1.1rem;
+  }
+
+  @mixin small {
+    padding: 2rem 1rem;
+    font-size: 1rem;
+  }
+}

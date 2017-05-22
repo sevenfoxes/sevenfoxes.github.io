@@ -1,0 +1,9 @@
+@import '../lib/layout.css';
+
+.content {
+  display: block;
+}
+
+.inner-wrapper {
+  @mixin inner-wrapper;
+}

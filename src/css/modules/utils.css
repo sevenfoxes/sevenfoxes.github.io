@@ -1,0 +1,9 @@
+@import '../lib/base.css';
+
+.module {
+  display: block;
+}
+
+.flex-spacer {
+  flex: 1;
+}
