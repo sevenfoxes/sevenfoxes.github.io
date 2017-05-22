@@ -43,7 +43,7 @@ function getClass(module, className) {
   return JSON.parse(classNames)[className]
 }
 
-gulp.task('jekyll', shell.task(['bundle exec jekyll build --watch']))
+gulp.task('jekyll', shell.task(['bundle exec jekyll build']))
 
 gulp.task('css', () => {
   return gulp.src('./src/css/app.css')
@@ -78,13 +78,6 @@ gulp.task('includes', ['css'], () => {
     .pipe(sync.stream())
 })
 
-gulp.task('pages', ['css'], () => {
-  return gulp.src('./src/pages/**.ejs')
-    .pipe(ejs({ className: getClass }, {}, { ext: '.html' }))
-    .pipe(gulp.dest('./'))
-    .pipe(sync.stream())
-})
-
 gulp.task('browserify', () => {
   const bundler = watchify(browserify('./src/js/app.js', {debug: true}))
     .transform(babelify)
@@ -115,11 +108,13 @@ gulp.task('watch', () => {
     notify: false
   })
 
+  gulp.watch('./*.html', ['jekyll'])
+  gulp.watch('./*.markdown', ['jekyll'])
+  gulp.watch('./posts/**/*.markdown', ['jekyll'])
   gulp.watch('./src/css/**.css', ['css'])
   gulp.watch('./src/layouts/**.ejs', ['layouts'])
   gulp.watch('./src/includes/**.ejs', ['includes'])
-  gulp.watch('./src/pages/**.ejs', ['pages'])
   gulp.watch('./src/js/**.js', ['browserify'])
 })
 
-gulp.task('default', ['jekyll', 'includes', 'layouts', 'pages', 'browserify', 'watch'])
+gulp.task('default', ['jekyll', 'includes', 'layouts', 'browserify', 'watch'])
