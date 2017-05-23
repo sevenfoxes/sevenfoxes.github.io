@@ -1,17 +1,9 @@
-<nav class="site-nav-module__3sVgp">
-  <div class="site-nav-inner-wrapper__3IKWQ">
-    <a href="/" class="site-nav-branding__1IBOT">{{ site.title }}</a>
-    <div class="utils-flex-spacer__16E6p"></div>
-    <ul class="site-nav-menu__2LLdC">
-      {% for p in site.pages %}
-        {% if p.url != '/' %}
-        <li>
-          <a href="{{ p.url }}" {% if p.url == page.url %}class="site-nav-active-link__1NzVW"{% endif %}>
-            {{ p.title }}
-          </a>
-        </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
+<nav class="mdl-navigation site-nav-module__3sVgp">
+  {% for p in site.pages %}
+    {% if p.url != '/feed.xml' and p.url != '/' %}
+    <a href="{{ p.url }}" class="mdl-navigation__link {% if p.url == page.url %}site-nav-active-link__1NzVW{% endif %}">
+      {{ p.title }}
+    </a>
+    {% endif %}
+  {% endfor %}
 </nav>

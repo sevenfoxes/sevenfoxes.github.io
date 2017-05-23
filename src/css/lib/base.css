@@ -1,5 +1,23 @@
+@import './normalize.css';
+@import './main.css';
+
 body {
-  margin: 0;
-  padding: 0;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+:global {
+  .mdl-layout__header {
+    background: dark-gray;
+    background: url('/images/city.jpg') center / cover;
+
+    @mixin medium-down {
+      display: block;
+      height: 56px;
+    }
+  }
+
+  .mdl-layout__drawer-button {
+    color: white;
+  }
 }

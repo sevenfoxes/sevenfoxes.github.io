@@ -1,0 +1,19 @@
+@import '../lib/main.css';
+
+.module {
+  color: #fff;
+}
+
+.inner {
+
+}
+
+.branding {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    color: #31b7c3;
+  }
+}

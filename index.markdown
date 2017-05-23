@@ -2,6 +2,10 @@
 title: Home
 layout: home
 url: /
+cards:
+  - card1.html
+  - card2.html
+  - ad.html
 ---
 
 # Home Page

@@ -1,9 +1,23 @@
-@import '../lib/layout.css';
+@import '../lib/main.css';
 
-.content {
-  display: block;
+.layout {
+
 }
 
 .inner-wrapper {
-  @mixin inner-wrapper;
+  max-width: 1124px;
+}
+
+
+.main {
+  margin: 0;
+}
+
+.cards {
+  > * {
+    @mixin small {
+      display: block;
+      width: 100%;
+    }
+  }
 }

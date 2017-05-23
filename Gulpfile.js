@@ -81,6 +81,13 @@ gulp.task('includes', gulp.series('css', () => {
     .pipe(sync.stream())
 }))
 
+gulp.task('cards', gulp.series('css', () => {
+  return gulp.src('./src/cards/**.ejs')
+    .pipe(ejs({ className: getClass }, {}, { ext: '.html' }))
+    .pipe(gulp.dest('./_includes/cards'))
+    .pipe(sync.stream())
+}))
+
 gulp.task('browserify', gulp.series(() => {
   const bundler = watchify(browserify('./src/js/app.js', {debug: true}))
     .transform(babelify)
@@ -119,8 +126,8 @@ function watch() {
       done()
     }))
 
-  gulp.watch(['./src/includes/**/*.ejs', './src/includes/**/*.ejs'],
-    gulp.series('layouts', 'includes', 'jekyll', done => {
+  gulp.watch(['./src/includes/**/*.ejs', './src/layouts/**/*.ejs', './src/cards/**/*.ejs'],
+    gulp.series('layouts', 'includes', 'cards', 'jekyll', done => {
       sync.reload()
       done()
     }))

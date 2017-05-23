@@ -5,11 +5,26 @@ layout: home
 <html lang="en-us">
   {% include head.html %}
   <body>
-    {% include site-nav.html %}
-    <section class="<%= className('home', 'content') %>">
-      <div class="<%= className('home', 'inner-wrapper') %>">
-        {{ content }}
+    <!-- Uses a header that contracts as the page scrolls down. -->
+    <div class="mdl-layout mdl-js-layout">
+      {% include page-header.html%}
+      <div class="mdl-layout__content">
+        <div class="mdl-grid <%= className('home', 'inner-wrapper') %>">
+          {% if page.cards %}
+            <div class="mdl-grid <%= className('home', 'cards') %>">
+              {% assign size = 12 | divided_by: page.cards.size %}
+              {% for card in page.cards %}
+                {% include cards/{{ card }} size=size %}
+              {% endfor %}
+            </div>
+          {% endif %}
+          <main class="mdl-grid <%= className('home', 'main') %>">
+            <div class="mdl-cell mdl-cell--12-col">
+                <h1>{{ page.title}}</h1>
+            </div>
+          </main>
+        </div>
       </div>
-    </section>
+    </div>
   </body>
 </html>

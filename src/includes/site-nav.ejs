@@ -1,17 +1,9 @@
-<nav class="<%= className('site-nav', 'module') %>">
-  <div class="<%= className('site-nav', 'inner-wrapper') %>">
-    <a href="/" class="<%= className('site-nav', 'branding') %>">{{ site.title }}</a>
-    <div class="<%= className('utils', 'flex-spacer') %>"></div>
-    <ul class="<%= className('site-nav', 'menu') %>">
-      {% for p in site.pages %}
-        {% if p.url != '/' %}
-        <li>
-          <a href="{{ p.url }}" {% if p.url == page.url %}class="<%= className('site-nav', 'active-link') %>"{% endif %}>
-            {{ p.title }}
-          </a>
-        </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
+<nav class="mdl-navigation <%= className('site-nav', 'module') %>">
+  {% for p in site.pages %}
+    {% if p.url != '/feed.xml' and p.url != '/' %}
+    <a href="{{ p.url }}" class="mdl-navigation__link {% if p.url == page.url %}<%= className('site-nav', 'active-link') %>{% endif %}">
+      {{ p.title }}
+    </a>
+    {% endif %}
+  {% endfor %}
 </nav>
