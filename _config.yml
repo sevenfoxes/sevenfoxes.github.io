@@ -11,6 +11,9 @@ collections:
   dogs:
     title: dogs
     output: true
+  people:
+    title: people
+    output: true
 defaults:
 - scope:
     path: ''
