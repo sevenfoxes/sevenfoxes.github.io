@@ -1,5 +1,6 @@
 <nav class="mdl-navigation site-nav-module__3sVgp">
-  {% for p in site.pages %}
+  {% assign sorted_pages = site.pages | sort:"order" %}
+  {% for p in sorted_pages %}
     {% if p.url != '/feed.xml' and p.url != '/' %}
     <a href="{{ p.url }}" class="mdl-navigation__link {% if p.url == page.url %}site-nav-active-link__1NzVW{% endif %}">
       {{ p.title }}
