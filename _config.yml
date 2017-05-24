@@ -18,6 +18,8 @@ description: 'Write an awesome description for your new site here. You can edit 
 permalink: pretty
 defaults:
   -
+    scope:
+      path: ''
     values:
       layout: 'post'
 baseurl:
