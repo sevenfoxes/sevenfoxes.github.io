@@ -6,6 +6,7 @@ categories:
 tags:
 - target
 - shopping
+layout: page
 ---
 
 lorem ipsum dolor
