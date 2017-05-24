@@ -8,8 +8,8 @@ collections:
   uploads:
     title: Uploads
     output: true
-  tags:
-    title: tags
+  dogs:
+    title: dogs
     output: true
 defaults:
 - scope:
