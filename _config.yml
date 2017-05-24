@@ -11,9 +11,6 @@ collections:
   dogs:
     title: dogs
     output: true
-  octopi:
-    title: octopi
-    output: true
   people:
     title: people
     output: true
