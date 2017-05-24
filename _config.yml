@@ -11,18 +11,17 @@ collections:
   tags:
     title: tags
     output: true
-email: sanesham@gmail.com
-description: 'Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for Google search
-  results) and in your feed.xml site description.'
-permalink: pretty
 defaults:
-  -
-    scope:
-      path: ''
-    values:
-      layout: 'post'
-baseurl:
+- scope:
+    path: ''
+  values:
+    layout: post
+email: sanesham@gmail.com
+description: Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for Google search
+  results) and in your feed.xml site description.
+permalink: pretty
+baseurl: 
 url: http://scottnesham.com
 twitter_username: sevenfoxes
 github_username: sevenfoxes
@@ -37,4 +36,4 @@ exclude:
 - src
 - yarn.lock
 - package.json
-- .vscode
+- ".vscode"

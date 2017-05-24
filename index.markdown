@@ -2,9 +2,9 @@
 title: Home
 layout: home
 cards:
-  - card1.html
-  - card2.html
-  - ad.html
+- card1.html
+- card2.html
+- ad.html
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod orci non magna tristique consequat. Vivamus ante arcu, faucibus sed dictum a, posuere laoreet tellus. Pellentesque condimentum facilisis urna. In tincidunt metus non scelerisque faucibus. Nunc id arcu eget sem vulputate tempor id nec urna. Aliquam euismod nisi vel sodales tincidunt. Sed faucibus, lectus sit amet tincidunt pretium, nulla nunc ornare urna, sit amet lobortis nunc orci quis velit. Vestibulum cursus, metus vitae consectetur vehicula, nulla neque sodales justo, at pulvinar magna orci vitae justo.
