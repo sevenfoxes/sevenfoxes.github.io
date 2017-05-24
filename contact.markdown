@@ -1,8 +1,5 @@
 ---
 title: Contact
-layout: home
+layout: page
 ---
-
-# Contact Page
-
 This is the contact page.

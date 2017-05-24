@@ -1,9 +1,7 @@
 ---
 title: About
-layout: home
+layout: page
 ---
-
-# About Page
 
 This is the about page.
 This is the about page.
