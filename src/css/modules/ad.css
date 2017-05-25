@@ -1,0 +1,32 @@
+.module {
+  background: url('/images/bobsburgers.jpg') top / cover;
+}
+
+.module-event {
+  background: #3E4EB8;
+}
+
+.title {
+  align-items: flex-start;
+
+  h4 {
+    margin-top: 0;
+  }
+}
+
+.actions {
+  border-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+
+.material-icons {
+  padding-right: 10px;
+}
+
+.title,
+.actions,
+.button {
+  color: #fff;
+}

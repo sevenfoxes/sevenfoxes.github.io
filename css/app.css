@@ -1,3 +1,42 @@
+.ad-module__3Pq9F {
+  background: url("/images/bobsburgers.jpg") top / cover;
+}
+
+.ad-module-event__3IrC2 {
+  background: #3E4EB8;
+}
+
+.ad-title__s5pii {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.ad-title__s5pii h4 {
+  margin-top: 0;
+}
+
+.ad-actions__3AxIH {
+  border-color: rgba(255, 255, 255, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.ad-material-icons__1QmUp {
+  padding-right: 10px;
+}
+
+.ad-title__s5pii,
+.ad-actions__3AxIH,
+.ad-button__13qOO {
+  color: #fff;
+}
 .card-title__EZjgt {
   background: url("/images/welcome.jpg") center / cover;
   color: white;
