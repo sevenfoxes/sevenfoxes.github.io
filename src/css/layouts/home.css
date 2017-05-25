@@ -6,6 +6,8 @@
 
 .inner-wrapper {
   max-width: 1124px;
+  height: auto;
+  min-height: 65%;
 }
 
 
