@@ -11,6 +11,9 @@ collections:
   customers:
     title: customers
     output: true
+  events:
+    title: events
+    output: true
 defaults:
 - scope:
     path: ''
