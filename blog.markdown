@@ -1,7 +1,7 @@
 ---
 title: Blog
-layout: blog
 date: 2017-05-24 21:42:00 Z
+layout: blog
 order: 3
 ---
 
