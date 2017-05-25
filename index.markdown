@@ -1,7 +1,7 @@
 ---
 title: Home
 cards:
-- ad.html
+- event.html
 - card1.html
 - card2.html
 layout: home
