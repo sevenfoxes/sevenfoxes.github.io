@@ -8,13 +8,27 @@ layout: blog
   <body>
     <!-- Uses a header that contracts as the page scrolls down. -->
     <div class="mdl-layout mdl-js-layout">
-      {% include page-header.html%}
+      {% include page-header.html %}
       <div class="mdl-layout__content">
-        <main class="mdl-grid ">
+        <main class="blog-main__30ey2">
           {% for post in site.posts %}
-            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--8-col">
-              <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-              <p><small><strong>{{ post.date | date: "%B %e, %Y" }}</strong> . {{ post.category }} . <a href="http://erjjones.github.com{{ post.url }}#disqus_thread"></a></small></p>
+            <div class="blog-post__1zxST">
+              <div class="">
+                <span class="blog-date__3-dVn">{{ post.date | date: "%B %e <br /> %Y" }}</span>
+              </div>
+              <div class="blog-detail__1Fmot">
+                <h3 class="blog-title__auNQq">
+                  <a href="{{ post.url }}">{{ post.title }}</a>
+                </h3>
+                {% if post.categories %}
+                  <span class="blog-categories__2ow1U">categories: <span class="blog-category__18bfu">{{ post.categories }}</span></span>
+                {% endif %}
+                <p class="">{{ post.excerpt }}</p>
+                <div class="blog-post-footer__3C7HM">
+                  <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ post.url }}">read more</a>
+                </div>
+              </div>
+
             </div>
           {% endfor %}
         </main>

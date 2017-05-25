@@ -1,4 +1,13 @@
-<header class="mdl-layout__header mdl-layout__header--waterfall <%= className('page-header', 'module') %>">
+{% if include.theme %}
+  {% assign handle = include.theme %}
+  {% if handle == 'post' %}
+    <header class="mdl-layout__header mdl-layout__header--waterfall <%= className('page-header', 'post') %>">
+  {% elsif handle == 'post-red' %}
+    <header class="mdl-layout__header mdl-layout__header--waterfall <%= className('page-header', 'post-red') %>">
+  {% endif %}
+{% else %}
+  <header class="mdl-layout__header mdl-layout__header--waterfall <%= className('page-header', 'module') %>">
+{% endif %}
   <div class="mdl-layout__header-row">
     <a href="/" class="mdl-layout-title <%= className('page-header', 'branding') %>">{{ site.title }}</a>
     <div class="mdl-layout-spacer"></div>

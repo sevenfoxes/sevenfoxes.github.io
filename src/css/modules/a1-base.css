@@ -1,12 +1,26 @@
-@import './normalize.css';
-@import './main.css';
+@import '../lib/normalize.css';
+@import '../lib/main.css';
 
 body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #424242;
+}
+
+main {
+  background: white;
+  overflow: hidden;
+}
+
+a {
+  color: blue;
 }
 
 
 :global {
+  .mdl-grid {
+    width: 100%;
+  }
+
   .mdl-layout__header {
     background: dark-gray;
     background: url('/images/city.jpg') center / cover;
@@ -17,7 +31,12 @@ body {
     }
   }
 
+  .mdl-layout__content {
+    background: white;
+  }
+
   .mdl-layout__drawer-button {
     color: white;
   }
 }
+

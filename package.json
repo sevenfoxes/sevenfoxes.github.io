@@ -26,6 +26,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^2.1.2",
     "path": "^0.12.7",
+    "postcss-css-variables": "^0.7.0",
     "postcss-easy-import": "^2.0.0",
     "postcss-extend": "^1.0.5",
     "postcss-import": "^9.1.0",

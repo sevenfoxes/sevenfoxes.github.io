@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: postred
 ---
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ layout: post
   {% include head.html %}
   <body>
     <div class="mdl-layout mdl-js-layout">
-      {% include page-header.html theme="post" %}
+      {% include page-header.html theme="post-red" %}
       <div class="mdl-layout__content">
         <div class="mdl-grid post-inner-wrapper__29jVW">
           <main class="mdl-grid ">
@@ -16,7 +16,7 @@ layout: post
                 {% if page.categories %}
                   <span class="post-categories__3odpn">categories: <span class="post-category__2EnXn">{{ page.categories }}</span></span>
                 {% endif %}
-                <div class="mdl-cell--12-col post-content__3gEDG">
+                <div class="post-content__3gEDG">
                   {{ content }}
                 </div>
                 {% if page.tags %}

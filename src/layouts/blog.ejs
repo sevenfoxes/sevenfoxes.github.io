@@ -8,13 +8,27 @@ layout: blog
   <body>
     <!-- Uses a header that contracts as the page scrolls down. -->
     <div class="mdl-layout mdl-js-layout">
-      {% include page-header.html%}
+      {% include page-header.html %}
       <div class="mdl-layout__content">
-        <main class="mdl-grid <%= className('blog', 'main') %>">
+        <main class="<%= className('blog', 'main') %>">
           {% for post in site.posts %}
-            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--8-col">
-              <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-              <p><small><strong>{{ post.date | date: "%B %e, %Y" }}</strong> . {{ post.category }} . <a href="http://erjjones.github.com{{ post.url }}#disqus_thread"></a></small></p>
+            <div class="<%= className('blog', 'post') %>">
+              <div class="<%= className('blog', 'metadata') %>">
+                <span class="<%= className('blog', 'date') %>">{{ post.date | date: "%B %e <br /> %Y" }}</span>
+              </div>
+              <div class="<%= className('blog', 'detail') %>">
+                <h3 class="<%= className('blog', 'title') %>">
+                  <a href="{{ post.url }}">{{ post.title }}</a>
+                </h3>
+                {% if post.categories %}
+                  <span class="<%= className('blog', 'categories') %>">categories: <span class="<%= className('blog', 'category') %>">{{ post.categories }}</span></span>
+                {% endif %}
+                <p class="<%= className('blog', 'excerpt') %>">{{ post.excerpt }}</p>
+                <div class="<%= className('blog', 'post-footer') %>">
+                  <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ post.url }}">read more</a>
+                </div>
+              </div>
+
             </div>
           {% endfor %}
         </main>

@@ -1,4 +1,13 @@
-<header class="mdl-layout__header mdl-layout__header--waterfall page-header-module__2j4y9">
+{% if include.theme %}
+  {% assign handle = include.theme %}
+  {% if handle == 'post' %}
+    <header class="mdl-layout__header mdl-layout__header--waterfall page-header-post__3ZFzD">
+  {% elsif handle == 'post-red' %}
+    <header class="mdl-layout__header mdl-layout__header--waterfall page-header-post-red__3OOGd">
+  {% endif %}
+{% else %}
+  <header class="mdl-layout__header mdl-layout__header--waterfall page-header-module__2j4y9">
+{% endif %}
   <div class="mdl-layout__header-row">
     <a href="/" class="mdl-layout-title page-header-branding__2iJ7n">{{ site.title }}</a>
     <div class="mdl-layout-spacer"></div>

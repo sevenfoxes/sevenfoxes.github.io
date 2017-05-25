@@ -12,6 +12,7 @@ const modules = require('postcss-modules')
 const nested = require('postcss-nested')
 const postcss = require('gulp-postcss')
 const postcss_import = require('postcss-easy-import')
+const cssvariables = require('postcss-css-variables')
 
 // ejs
 const ejs = require('gulp-ejs')
@@ -53,6 +54,7 @@ gulp.task('css', () => {
   ])
   .pipe(postcss([
     postcss_import,
+    cssvariables,
     mixins,
     nested,
     extend,

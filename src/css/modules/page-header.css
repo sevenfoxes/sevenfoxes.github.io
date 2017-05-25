@@ -4,6 +4,7 @@
   color: #fff;
 }
 
+
 .inner {
 
 }
@@ -16,4 +17,13 @@
   &:hover {
     color: #31b7c3;
   }
+}
+
+/* variants */
+.post {
+  background: blue;
+}
+
+.post-red {
+  background: red;
 }

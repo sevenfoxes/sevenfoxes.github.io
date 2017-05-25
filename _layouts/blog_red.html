@@ -1,0 +1,35 @@
+---
+layout: blog_red
+---
+
+<!DOCTYPE html>
+<html lang="en-us">
+  {% include head.html %}
+  <body>
+    <!-- Uses a header that contracts as the page scrolls down. -->
+    <div class="mdl-layout mdl-js-layout">
+      {% include page-header.html theme="blog--red"%}
+      <div class="mdl-layout__content">
+        <main class="blog-main__30ey2">
+          {% for post in site.posts %}
+            <div class="blog-post__1zxST">
+              <h3 class="blog-title__auNQq">
+                <a href="{{ post.url }}">{{ post.title }}</a>
+              </h3>
+              <div class="">
+                <span class="blog-date__3-dVn">{{ post.date | date: "%B %e, %Y" }}</span>
+                <span class="blog-category__18bfu">{{ post.categories }}</span>
+              </div>
+              <p class="">{{ post.excerpt }}</p>
+              <div class="blog-post-footer__3C7HM">
+                <a href="{{ post.url }}">read more</a>
+              </div>
+
+            </div>
+          {% endfor %}
+        </main>
+        {% include footer.html %}
+      </div>
+    </div>
+  </body>
+</html>
