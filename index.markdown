@@ -1,9 +1,9 @@
 ---
 title: Home
 cards:
+- ad.html
 - card1.html
 - card2.html
-- ad.html
 layout: home
 ---
 
