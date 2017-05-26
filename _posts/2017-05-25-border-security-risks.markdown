@@ -6,7 +6,6 @@ categories:
 tags:
 - border patrol
 - 1password
-layout: post
 excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus nisi
   at arcu tempor, id porttitor tellus viverra. Duis eu tempus ligula. Donec porttitor
   feugiat nisi a gravida. Sed et euismod ante. Aenean consectetur mauris non congue
