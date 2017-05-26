@@ -8,7 +8,7 @@ tags:
 - criminal justice
 ---
 
-<script async src="//player-backend.cnevids.com/script/video/5924a90eb57ac340fe000025.js"></script>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/riqsbaOi_0o" frameborder="0" allowfullscreen></iframe>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus nisi at arcu tempor, id porttitor tellus viverra. Duis eu tempus ligula. Donec porttitor feugiat nisi a gravida. Sed et euismod ante. Aenean consectetur mauris non congue lobortis. Nulla quis tincidunt nibh, sit amet ornare dolor. Nulla condimentum arcu ut libero rutrum rutrum sed quis nisi. Aenean sed feugiat turpis, sit amet laoreet augue. Sed varius massa risus, ac egestas risus vehicula nec. Proin rhoncus posuere nibh, et scelerisque sem sodales et. Suspendisse at augue ut ante euismod mollis id ac sem. Nunc quam urna, tincidunt eu efficitur vitae, scelerisque quis tellus. Integer aliquet arcu sollicitudin ornare egestas. Maecenas finibus non ligula tempor porttitor.
 
