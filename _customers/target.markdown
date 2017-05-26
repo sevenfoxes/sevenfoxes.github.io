@@ -6,7 +6,7 @@ categories:
 tags:
 - target
 - shopping
-layout: post_red
+layout: postred
 ---
 
 lorem ipsum dolor
