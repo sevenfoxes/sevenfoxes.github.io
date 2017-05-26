@@ -16,7 +16,7 @@ layout: post
                 {% if page.categories %}
                   <span class="<%= className('post', 'categories') %>">categories: <span class="<%= className('post', 'category') %>">{{ page.categories }}</span></span>
                 {% endif %}
-                <div class="mdl-cell--12-col <%= className('post', 'content') %>">
+                <div class="<%= className('post', 'content') %>">
                   {{ content }}
                 </div>
                 {% if page.tags %}
@@ -26,7 +26,7 @@ layout: post
                     {% endfor %}
                   </div>
                 {% endif %}
-                <a class="mdl-button mdl-js-button mdl-js-ripple-effect <%= className('post', 'back') %>" href="/blog">back</a>
+                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent <%= className('post', 'back') %>" href="/blog">back</a>
             </div>
           </main>
         </div>

@@ -479,6 +479,11 @@ a {
 .mdl-layout__drawer-button {
   color: white;
 }
+
+.mdl-button--accent.mdl-button--accent.mdl-button--raised {
+  background: #f96937;
+  color: white;
+}
 .ad-module__3Pq9F {
   background: url("/images/bobsburgers.jpg") top / cover;
 }
@@ -584,7 +589,7 @@ a {
 
 .blog-post-footer__3C7HM {
   border-top: 1px solid #ddd;
-  padding: 10px;
+  padding: 10px 0 10px 10px;
   text-align: right;
 }
 
@@ -640,6 +645,16 @@ a {
   text-transform: uppercase;
 }
 
+.blog-tags__24Evu {
+  padding: 0 0 10px 0;
+}
+
+.blog-tags__24Evu span {
+  background: #03a9f4;
+  color: white;
+  padding: 3px 5px;
+}
+
 
 .home-inner-wrapper__3wXf0 {
   max-width: 1124px;
@@ -674,7 +689,7 @@ a {
 }
 
 .post-inner-wrapper__29jVW {
-  max-width: 1200px;
+  max-width: 70rem;
   height: auto;
   min-height: 70vh;
 }

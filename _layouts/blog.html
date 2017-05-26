@@ -24,8 +24,15 @@ layout: blog
                   <span class="blog-categories__2ow1U">categories: <span class="blog-category__18bfu">{{ post.categories }}</span></span>
                 {% endif %}
                 <p class="">{{ post.excerpt }}</p>
+                {% if post.tags %}
+                  <div class="blog-tags__24Evu">
+                    {% for tag in post.tags %}
+                      <span>{{ tag }}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
                 <div class="blog-post-footer__3C7HM">
-                  <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ post.url }}">read more</a>
+                  <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{{ post.url }}">read more</a>
                 </div>
               </div>
 

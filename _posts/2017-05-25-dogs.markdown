@@ -1,9 +1,0 @@
----
-title: dogs
-date: 2017-05-25 18:15:00 Z
-tags:
-- dogs
-layout: postred
----
-
-This is a post about dogs

@@ -24,8 +24,15 @@ layout: blog
                   <span class="<%= className('blog', 'categories') %>">categories: <span class="<%= className('blog', 'category') %>">{{ post.categories }}</span></span>
                 {% endif %}
                 <p class="<%= className('blog', 'excerpt') %>">{{ post.excerpt }}</p>
+                {% if post.tags %}
+                  <div class="<%= className('blog', 'tags') %>">
+                    {% for tag in post.tags %}
+                      <span>{{ tag }}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
                 <div class="<%= className('blog', 'post-footer') %>">
-                  <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ post.url }}">read more</a>
+                  <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{{ post.url }}">read more</a>
                 </div>
               </div>
 

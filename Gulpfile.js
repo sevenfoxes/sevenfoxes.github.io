@@ -116,7 +116,7 @@ function watch() {
     notify: false
   })
 
-  gulp.watch(['./*.markdown', './posts/**/*.markdown'],
+  gulp.watch(['./*.markdown', './_posts/**/*.markdown'],
     gulp.series('jekyll', done => {
       sync.reload()
       done()

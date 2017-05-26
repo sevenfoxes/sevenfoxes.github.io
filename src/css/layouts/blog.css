@@ -20,7 +20,7 @@
 
 .post-footer {
   border-top: 1px solid #ddd;
-  padding: 10px;
+  padding: 10px 0 10px 10px;
   text-align: right;
 
   a {
@@ -77,4 +77,14 @@
   min-width: 80px;
   padding: 10px;
   text-transform: uppercase;
+}
+
+.tags {
+  padding: 0 0 10px 0;
+
+  span {
+    background: blue;
+    color: white;
+    padding: 3px 5px;
+  }
 }

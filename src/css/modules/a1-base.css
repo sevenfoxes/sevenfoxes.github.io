@@ -38,5 +38,10 @@ a {
   .mdl-layout__drawer-button {
     color: white;
   }
+
+  .mdl-button--accent.mdl-button--accent.mdl-button--raised {
+    background: red;
+    color: white;
+  }
 }
 
