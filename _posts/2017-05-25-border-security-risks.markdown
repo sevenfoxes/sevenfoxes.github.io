@@ -1,14 +1,18 @@
 ---
 title: A Clever New Way to Protect Your Data at the Border Could Also Add Risk
 date: 2017-05-25 17:08:00 Z
-layout: post
 categories:
 - security
 tags:
 - border patrol
 - 1password
-excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus nisi at arcu tempor, id porttitor tellus viverra. Duis eu tempus ligula. Donec porttitor feugiat nisi a gravida. Sed et euismod ante. Aenean consectetur mauris non congue lobortis. Nulla quis tincidunt nibh, sit amet ornare dolor.
+layout: post
+excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus nisi
+  at arcu tempor, id porttitor tellus viverra. Duis eu tempus ligula. Donec porttitor
+  feugiat nisi a gravida. Sed et euismod ante. Aenean consectetur mauris non congue
+  lobortis. Nulla quis tincidunt nibh, sit amet ornare dolor.
 ---
+
 ## Dolor
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus nisi at arcu tempor, id porttitor tellus viverra. Duis eu tempus ligula. Donec porttitor feugiat nisi a gravida. Sed et euismod ante. Aenean consectetur mauris non congue lobortis. Nulla quis tincidunt nibh, sit amet ornare dolor. Nulla condimentum arcu ut libero rutrum rutrum sed quis nisi. Aenean sed feugiat turpis, sit amet laoreet augue. Sed varius massa risus, ac egestas risus vehicula nec. Proin rhoncus posuere nibh, et scelerisque sem sodales et. Suspendisse at augue ut ante euismod mollis id ac sem. Nunc quam urna, tincidunt eu efficitur vitae, scelerisque quis tellus. Integer aliquet arcu sollicitudin ornare egestas. Maecenas finibus non ligula tempor porttitor.
 

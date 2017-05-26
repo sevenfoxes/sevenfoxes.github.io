@@ -1,11 +1,11 @@
 ---
 title: For Modern Astronomers, It’s Learn to Code or Get Left Behind
 date: 2017-05-25 18:15:00 Z
+categories:
+- technology
 tags:
 - Astronomy
 - coding
-categories:
-- technology
 layout: postred
 ---
 
