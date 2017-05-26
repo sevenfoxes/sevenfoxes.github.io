@@ -1,9 +1,9 @@
 ---
 title: Home
 cards:
+- event.html
 - card2.html
 - card1.html
-- event.html
 layout: home
 ---
 
