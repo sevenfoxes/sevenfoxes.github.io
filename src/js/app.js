@@ -26,4 +26,6 @@ const renderContent = () => {
   const ContentContainer = require('./components/ContentContainer').default
   generalRender(ContentContainer, document.getElementById('react-entry'))
 }
+
 renderContent()
+

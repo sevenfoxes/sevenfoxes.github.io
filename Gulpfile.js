@@ -89,18 +89,20 @@ gulp.task('cards', gulp.series('css', () => {
     .pipe(sync.stream())
 }))
 
-gulp.task('browserify', gulp.series(() => {
+gulp.task('browserify', gulp.series(done => {
   const bundler = watchify(browserify('./src/js/app.js', {debug: true}))
     .transform(babelify)
 
-  return bundler.bundle()
+  bundler.bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
       // .pipe(uglify())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./_includes'))
+    .pipe(gulp.dest('./js'))
     .pipe(sync.stream({match: '**/*.js'}))
+
+  done()
 
 }))
 
