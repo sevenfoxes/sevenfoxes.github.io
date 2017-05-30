@@ -3,5 +3,5 @@
     "transform-flow-strip-types"
   ],
   "retainLines": true,
-  "presets": ["env"]
+  "presets": ["es2015", "stage-0", "react"]
 }

@@ -1,21 +1,27 @@
 {
   "parser": "babel-eslint",
   "plugins": [
-    "flowtype"
+    "flowtype",
+    "react"
   ],
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
+  },
   "extends": [
     "plugin:flowtype/recommended"
   ],
   "env": {
-    "jasmine": true,
-    "node" : true,
     "es6": true
   },
   "parserOptions": {
       "sourceType": "module",
       "ecmaVersion": 6,
       "ecmaFeatures": {
-          "experimentalObjectRestSpread": true
+          "experimentalObjectRestSpread": true,
+          "jsx": true,
+          "modules": true
       }
   },
   "rules": {
