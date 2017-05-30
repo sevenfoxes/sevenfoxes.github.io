@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import { reducer as toastrReducer } from 'react-redux-toastr'
-import pageReducer from './greenhouseReducer'
+import greenhouseReducer from './greenhouseReducer'
 
 // creates root reducer
 const rootReducer = combineReducers({
   toastr: toastrReducer,
-  pages: pageReducer
+  jobs: greenhouseReducer
 })
 
 // exports root reducer

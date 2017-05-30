@@ -31534,13 +31534,13 @@ module.exports = warning;
 
 
 
-fetchPages = fetchPages;var _isomorphicFetch = require('isomorphic-fetch');var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);var _actionTypes = require('../constants/actionTypes');var types = _interopRequireWildcard(_actionTypes);function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj.default = obj;return newObj;}}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // page loading actions
-function fetchPagesRequest() {return { type: types.FETCH_PAGES_REQUEST };}function fetchPagesSuccess(body) {return { type: types.FETCH_PAGES_SUCCESS, body: body };}function fetchPagesFailure(ex) {return { type: types.FETCH_PAGES_FAILURE, ex: ex };}function fetchPages() {return function (dispatch) {
-    dispatch(fetchPagesRequest());
-    return (0, _isomorphicFetch2.default)('http://localhost:8080/wp-json/wp/v2/pages').
+fetchJobs = fetchJobs;var _isomorphicFetch = require('isomorphic-fetch');var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);var _actionTypes = require('../constants/actionTypes');var types = _interopRequireWildcard(_actionTypes);function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj.default = obj;return newObj;}}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // page loading actions
+function fetchJobsRequest() {return { type: types.FETCH_JOBS_REQUEST };}function fetchJobsSuccess(body) {return { type: types.FETCH_JOBS_SUCCESS, body: body };}function fetchJobsFailure(ex) {return { type: types.FETCH_JOBS_FAILURE, ex: ex };}function fetchJobs() {return function (dispatch) {
+    dispatch(fetchJobsRequest());
+    return (0, _isomorphicFetch2.default)('https://jsonplaceholder.typicode.com/posts').
     then(function (response) {return response.json();}).
-    then(function (json) {return dispatch(fetchPagesSuccess(json));}).
-    catch(function (ex) {return dispatch(fetchPagesFailure(ex));});
+    then(function (json) {return dispatch(fetchJobsSuccess(json));}).
+    catch(function (ex) {return dispatch(fetchJobsFailure(ex));});
   };
 }
 
@@ -31580,22 +31580,24 @@ renderContent();
 'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _react = require('react');var _react2 = _interopRequireDefault(_react);
 var _reactRedux = require('react-redux');
 var _NavigationActions = require('../../actions/NavigationActions');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}var
+
 ContentContainer = function (_Component) {_inherits(ContentContainer, _Component);function ContentContainer() {_classCallCheck(this, ContentContainer);return _possibleConstructorReturn(this, (ContentContainer.__proto__ || Object.getPrototypeOf(ContentContainer)).apply(this, arguments));}_createClass(ContentContainer, [{ key: 'componentWillMount', value: function componentWillMount()
     {
-      this.props.getPages();
+      this.props.getJobs();
     } }, { key: 'render', value: function render()
     {
+      console.log(this.props.jobs);
       return (
         _react2.default.createElement('div', null,
-          JSON.stringify(this.props.pages)));
+          JSON.stringify(this.props.jobs)));
 
 
     } }]);return ContentContainer;}(_react.Component);
 ;exports.default =
 (0, _reactRedux.connect)(function (state) {return {
-    pages: state.pages };},
+    jobs: state.jobs };},
 function (dispatch) {return {
-    getPages: function getPages() {return dispatch((0, _NavigationActions.fetchPages)());} };})(
+    getJobs: function getJobs() {return dispatch((0, _NavigationActions.fetchJobs)());} };})(
 ContentContainer);
 
 },{"../../actions/NavigationActions":277,"react":261,"react-redux":219}],280:[function(require,module,exports){
@@ -31609,7 +31611,7 @@ var FETCH_JOBS_FAILURE = exports.FETCH_JOBS_FAILURE = 'FETCH_JOBS_FAILURE';
 
 reducer;var _actionTypes = require('../constants/actionTypes');var initialState = []; // test reducer
 function reducer() {var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;var action = arguments[1];switch (action.type) {
-    case _actionTypes.FETCH_PAGES_SUCCESS:
+    case _actionTypes.FETCH_JOBS_SUCCESS:
       return action.body;
     default:
       return state;}
@@ -31624,7 +31626,7 @@ var _greenhouseReducer = require('./greenhouseReducer');var _greenhouseReducer2 
 // creates root reducer
 var rootReducer = (0, _redux.combineReducers)({
   toastr: _reactReduxToastr.reducer,
-  pages: _greenhouseReducer2.default });
+  jobs: _greenhouseReducer2.default });
 
 
 // exports root reducer

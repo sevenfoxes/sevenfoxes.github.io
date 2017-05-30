@@ -1,20 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchPages } from '../../actions/NavigationActions'
+import { fetchJobs } from '../../actions/NavigationActions'
+
 class ContentContainer extends Component {
   componentWillMount() {
-    this.props.getPages()
+    this.props.getJobs()
   }
   render() {
+    console.log(this.props.jobs)
     return (
       <div>
-        {JSON.stringify(this.props.pages)}
+        {JSON.stringify(this.props.jobs)}
       </div>
     )
   }
 };
 export default connect(state => ({
-  pages: state.pages,
+  jobs: state.jobs,
 }), dispatch => ({
-  getPages: () => dispatch(fetchPages())
+  getJobs: () => dispatch(fetchJobs())
 }))(ContentContainer)
