@@ -1,6 +1,8 @@
 [ignore]
 .*/build/.*
 .*/node_modules/nock/.*
+.*/node_modules/styled-components/.*
+.*/.test/.*
 
 [libs]
 flow-typed

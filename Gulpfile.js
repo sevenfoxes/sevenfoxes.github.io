@@ -21,7 +21,6 @@ const ejs = require('gulp-ejs')
 const shell = require('gulp-shell')
 
 //testing server
-const rewrite = require('connect-modrewrite')
 const sync = require('browser-sync').create()
 
 // Babel and Browserify
@@ -98,7 +97,7 @@ gulp.task('browserify', gulp.series(() => {
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
-      .pipe(uglify())
+      // .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./_includes'))
     .pipe(sync.stream({match: '**/*.js'}))
