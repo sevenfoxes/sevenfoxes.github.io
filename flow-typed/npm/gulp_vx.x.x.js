@@ -1,4 +1,4 @@
-// flow-typed signature: 52faf1cc8f9be571ba4fb8a624d39428
+// flow-typed signature: 73e6e48ead3758796410337a577aaf23
 // flow-typed version: <<STUB>>/gulp_vgulpjs/gulp.git#4.0/flow_v0.46.0
 
 /**
@@ -26,18 +26,6 @@ declare module 'gulp/bin/gulp' {
   declare module.exports: any;
 }
 
-declare module 'gulp/test/dest' {
-  declare module.exports: any;
-}
-
-declare module 'gulp/test/src' {
-  declare module.exports: any;
-}
-
-declare module 'gulp/test/watch' {
-  declare module.exports: any;
-}
-
 // Filename aliases
 declare module 'gulp/bin/gulp.js' {
   declare module.exports: $Exports<'gulp/bin/gulp'>;
@@ -47,13 +35,4 @@ declare module 'gulp/index' {
 }
 declare module 'gulp/index.js' {
   declare module.exports: $Exports<'gulp'>;
-}
-declare module 'gulp/test/dest.js' {
-  declare module.exports: $Exports<'gulp/test/dest'>;
-}
-declare module 'gulp/test/src.js' {
-  declare module.exports: $Exports<'gulp/test/src'>;
-}
-declare module 'gulp/test/watch.js' {
-  declare module.exports: $Exports<'gulp/test/watch'>;
 }
