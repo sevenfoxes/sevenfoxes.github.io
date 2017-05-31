@@ -65,45 +65,37 @@ gulp.task('css', () => {
   ]))
   .pipe(concatCss('app.css'))
   .pipe(gulp.dest('./css'))
-  .pipe(sync.stream({match: '**/*.css'}))
 })
 
 gulp.task('layouts', gulp.series('css', () => {
   return gulp.src('./src/layouts/**.ejs')
     .pipe(ejs({ className: getClass }, {}, { ext: '.html' }))
     .pipe(gulp.dest('./_layouts'))
-    .pipe(sync.stream())
 }))
 
 gulp.task('includes', gulp.series('css', () => {
   return gulp.src('./src/includes/**.ejs')
     .pipe(ejs({ className: getClass }, {}, { ext: '.html' }))
     .pipe(gulp.dest('./_includes'))
-    .pipe(sync.stream())
 }))
 
 gulp.task('cards', gulp.series('css', () => {
   return gulp.src('./src/cards/**.ejs')
     .pipe(ejs({ className: getClass }, {}, { ext: '.html' }))
     .pipe(gulp.dest('./_includes/cards'))
-    .pipe(sync.stream())
 }))
 
 gulp.task('browserify', gulp.series(done => {
   const bundler = watchify(browserify('./src/js/app.js', {debug: true}))
     .transform(babelify)
 
-  bundler.bundle()
+  return bundler.bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
       // .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./js'))
-    .pipe(sync.stream({match: '**/*.js'}))
-
-  done()
-
 }))
 
 function watch() {
