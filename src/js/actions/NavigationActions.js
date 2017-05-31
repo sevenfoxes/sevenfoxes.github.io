@@ -21,6 +21,7 @@ function fetchJobsFailure(ex) {
     ex
   }
 }
+
 export function fetchJobs(): Function {
   return (dispatch: Function) => {
     dispatch(fetchJobsRequest())
