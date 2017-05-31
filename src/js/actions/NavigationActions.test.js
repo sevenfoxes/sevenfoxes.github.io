@@ -6,32 +6,33 @@ import * as actions from './NavigationActions'
 import * as types from '../constants/actionTypes'
 const middlewares = [ thunk ]
 const mockStore = configureMockStore(middlewares)
-const testPages = [
+const testUsers = [
   {
-    id: 2,
-    guid: {},
-    slug: 'sample-page',
-    type: 'page',
-    link: 'http://localhost:8080/sample-page/',
-    parent: 0,
-    menu_order: 0,
+    userId: 1,
+    id: 1,
+    title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+    body: 'quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto'
   }
 ]
+
 describe('async actions', () => {
   afterEach(() => {
     nock.cleanAll()
   })
-  it('creates FETCH_PAGES_SUCCESS when fetching pages has been done', () => {
-    nock('http://localhost:8080/')
-      .get('/wp-json/wp/v2/pages')
-      .reply(200, testPages)
-    const store = mockStore({pages: []})
+
+  it('creates FETCH_JOBS_SUCCESS when fetching pages has been done', () => {
+
+    nock('https://jsonplaceholder.typicode.com')
+      .get('/users')
+      .reply(200, testUsers)
+
+    const store = mockStore({jobs: []})
     const expectedActions = [
-      { type: types.FETCH_PAGES_REQUEST },
-      { type: types.FETCH_PAGES_SUCCESS, body: testPages }
+      { type: types.FETCH_JOBS_REQUEST },
+      { type: types.FETCH_JOBS_SUCCESS, body: testUsers }
     ]
 
-    return store.dispatch(actions.fetchPages())
+    return store.dispatch(actions.fetchJobs())
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions)
       })
