@@ -1,22 +1,43 @@
+/**
+ * @flow
+ */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchJobs } from '../../actions/NavigationActions'
+
 
 class ContentContainer extends Component {
   componentWillMount() {
     this.props.getJobs()
   }
+
+  listJobs(jobList) {
+    return this.props.jobs.map((job: Object, i: Number) => {
+      return <div key={i}>{job.name}</div>
+    })
+  }
+
   render() {
-    console.log(this.props.jobs)
     return (
       <div>
-        {JSON.stringify(this.props.jobs)}
+        <h1>People</h1>
+        <div>
+          {this.listJobs()}
+        </div>
       </div>
     )
   }
-};
-export default connect(state => ({
-  jobs: state.jobs,
-}), dispatch => ({
+}
+
+const mapStateToProps = (state) => ({
+  jobs: state.jobs
+})
+
+const mapDispatchToProps = (dispatch: Function) => ({
   getJobs: () => dispatch(fetchJobs())
-}))(ContentContainer)
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ContentContainer)
