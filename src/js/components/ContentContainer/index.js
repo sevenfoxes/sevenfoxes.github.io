@@ -1,9 +1,20 @@
-/**
- * @flow
- */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchJobs } from '../../actions/NavigationActions'
+import styled from 'styled-components'
+
+const Jobs = styled.ul`
+  padding: 0;
+  margin: 0;
+`
+
+const Job = styled.li`
+  background: #999;
+  color: white;
+  list-style-type: none;
+  margin-bottom: 1rem;
+  padding: 1rem;
+`
 
 
 class ContentContainer extends Component {
@@ -12,8 +23,8 @@ class ContentContainer extends Component {
   }
 
   listJobs(jobList) {
-    return this.props.jobs.map((job: Object, i: Number) => {
-      return <div key={i}>{job.name}</div>
+    return this.props.jobs.map((job, i) => {
+      return <Job key={i}>{job.name}</Job>
     })
   }
 
@@ -21,9 +32,9 @@ class ContentContainer extends Component {
     return (
       <div>
         <h1>People</h1>
-        <div>
+        <Jobs>
           {this.listJobs()}
-        </div>
+        </Jobs>
       </div>
     )
   }
