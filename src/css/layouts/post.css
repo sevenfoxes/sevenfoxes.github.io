@@ -1,0 +1,51 @@
+@import '../lib/main.css';
+
+.title {
+  margin: 0;
+}
+
+.categories {
+  display: block;
+  color: light-gray;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.category {
+  font-style: italic;
+}
+
+.inner-wrapper {
+  max-width: 70rem;
+  height: auto;
+  min-height: 70vh;
+}
+
+.tags {
+  border-top: 1px solid #ddd;
+  color: light-gray;
+  padding: 10px 0;
+
+  span {
+    font-style: italic;
+
+    &:after {
+      content: ",";
+    }
+
+    &:last-child {
+      &:after {
+        content: "";
+      }
+    }
+  }
+}
+
+.content {
+  padding: 1rem;
+}
+
+.back {
+  float: right;
+}

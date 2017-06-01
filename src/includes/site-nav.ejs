@@ -1,0 +1,10 @@
+<nav class="mdl-navigation <%= className('site-nav', 'module') %>">
+  {% assign sorted_pages = site.pages | sort:"order" %}
+  {% for p in sorted_pages %}
+    {% if p.url != '/feed.xml' and p.url != '/' %}
+    <a href="{{ p.url }}" class="mdl-navigation__link {% if p.url == page.url %}<%= className('site-nav', 'active-link') %>{% endif %}">
+      {{ p.title }}
+    </a>
+    {% endif %}
+  {% endfor %}
+</nav>

@@ -1,0 +1,56 @@
+@import '../lib/normalize.css';
+@import '../lib/main.css';
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #424242;
+}
+
+main {
+  background: white;
+  overflow: hidden;
+}
+
+a {
+  color: blue;
+}
+
+iframe {
+  margin: 2rem 0;
+  min-height: 518px;
+
+  + p {
+    margin-top: 2rem;
+  }
+}
+
+
+:global {
+  .mdl-grid {
+    width: 100%;
+  }
+
+  .mdl-layout__header {
+    background: dark-gray;
+    background: url('/images/city.jpg') center / cover;
+
+    @mixin medium-down {
+      display: block;
+      height: 56px;
+    }
+  }
+
+  .mdl-layout__content {
+    background: white;
+  }
+
+  .mdl-layout__drawer-button {
+    color: white;
+  }
+
+  .mdl-button--accent.mdl-button--accent.mdl-button--raised {
+    background: red;
+    color: white;
+  }
+}
+

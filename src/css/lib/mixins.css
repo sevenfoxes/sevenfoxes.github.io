@@ -1,0 +1,27 @@
+@value small-breakpoint: 840px;
+@value medium-breakpoint: 1024px;
+@value large-breakpoint: 2020px;
+
+@define-mixin large {
+  @media screen and (min-width: large-breakpoint) {
+     @mixin-content;
+  }
+}
+
+@define-mixin medium {
+  @media screen and (min-width: medium-breakpoint) {
+     @mixin-content;
+  }
+}
+
+@define-mixin medium-down {
+  @media screen and (max-width: medium-breakpoint) {
+     @mixin-content;
+  }
+}
+
+@define-mixin small {
+  @media screen and (max-width: small-breakpoint) {
+     @mixin-content;
+  }
+}

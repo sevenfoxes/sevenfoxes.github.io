@@ -1,0 +1,11 @@
+@import '../lib/main.css';
+
+.module {
+  color: #fff;
+
+  .active-link {
+    opacity: 1;
+  }
+}
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  {% include head.html %}
+  <body>
+    <!-- Uses a header that contracts as the page scrolls down. -->
+    <div class="mdl-layout mdl-js-layout">
+      {% include page-header.html %}
+      <div class="mdl-layout__content">
+        <main class="blog-main__30ey2">
+          {% for post in site.posts %}
+            <div class="blog-post__1zxST">
+              <div class="">
+                <span class="blog-date__3-dVn">{{ post.date | date: "%B %e <br /> %Y" }}</span>
+              </div>
+              <div class="blog-detail__1Fmot">
+                <h3 class="blog-title__auNQq">
+                  <a href="{{ post.url }}">{{ post.title }}</a>
+                </h3>
+                {% if post.categories %}
+                  <span class="blog-categories__2ow1U">categories: <span class="blog-category__18bfu">{{ post.categories }}</span></span>
+                {% endif %}
+                <p class="">{{ post.excerpt }}</p>
+                {% if post.tags %}
+                  <div class="blog-tags__24Evu">
+                    {% for tag in post.tags %}
+                      <span>{{ tag }}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                <div class="blog-post-footer__3C7HM">
+                  <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{{ post.url }}">read more</a>
+                </div>
+              </div>
+
+            </div>
+          {% endfor %}
+        </main>
+        {% include footer.html %}
+      </div>
+    </div>
+  </body>
+</html>
