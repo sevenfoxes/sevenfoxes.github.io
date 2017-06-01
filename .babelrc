@@ -1,7 +1,4 @@
 {
-  "plugins": [
-    "transform-flow-strip-types"
-  ],
   "retainLines": true,
   "presets": ["es2015", "stage-0", "react"]
 }

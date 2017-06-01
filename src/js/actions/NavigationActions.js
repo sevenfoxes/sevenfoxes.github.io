@@ -22,8 +22,8 @@ function fetchJobsFailure(ex) {
   }
 }
 
-export function fetchJobs(): Function {
-  return (dispatch: Function) => {
+export function fetchJobs() {
+  return dispatch => {
     dispatch(fetchJobsRequest())
     return fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())

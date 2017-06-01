@@ -33,7 +33,7 @@ const mapStateToProps = (state) => ({
   jobs: state.jobs
 })
 
-const mapDispatchToProps = (dispatch: Function) => ({
+const mapDispatchToProps = dispatch => ({
   getJobs: () => dispatch(fetchJobs())
 })
 
