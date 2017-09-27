@@ -12,8 +12,8 @@ function getJSONFromCssModules(cssFileName, json) {
   const innerPath = folders.pop()
   const outerPath = pluralize.singular(folders.pop())
   const jsonFileName = (fileName == 'index')
-    ? path.resolve('./docs/_data/css', `${outerPath}_${innerPath}.json`)
-    : path.resolve('./docs/_data/css', `${outerPath}_${innerPath}__${fileName}.json`)
+    ? path.resolve('./_data/css', `${outerPath}_${innerPath}.json`)
+    : path.resolve('./_data/css', `${outerPath}_${innerPath}__${fileName}.json`)
 
   fs.writeFileSync(jsonFileName, JSON.stringify(json))
 }
@@ -21,7 +21,7 @@ function getJSONFromCssModules(cssFileName, json) {
 module.exports = {
   entry: './src/app.js',
   output: {
-    path: path.resolve(__dirname, 'docs'),
+    path: path.resolve(__dirname, './'),
     filename: 'assets/bundle.js'
   },
   module: {
