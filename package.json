@@ -1,7 +1,7 @@
 {
-  "name": "ghostwheel",
+  "name": "scottnesham.com",
   "author": "Scott Nesham",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "jekyll and css modules in perfect harmony",
   "main": "index.js",
   "scripts": {
