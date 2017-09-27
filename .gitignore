@@ -1,5 +1,5 @@
 node_modules
 _site
-jekyll/_data/css
-jekyll/assets
+docs/_data/css
+docs/assets
 .DS_Store
